@@ -1,8 +1,8 @@
 package com.project4;
 /**
- Container class holds a list of Order being purchased
- from the store. Adds, and  removes orders.
- @author Priya Patel, Vanna Mendoza
+ * Container class holds a list of Order being purchased
+ * from the store. Adds, and  removes orders.
+ * @author Priya Patel, Vanna Mendoza
  */
 import java.util.ArrayList;
 
@@ -10,9 +10,9 @@ public class StoreOrders implements Customizable{
     private ArrayList<Order> orderList;
 
     /**
-     A constructor that will define ArrayList
-     that will hold all orders placed within
-     the store.
+     * A constructor that will define ArrayList
+     * that will hold all orders placed within
+     * the store.
      */
     public StoreOrders(){
        orderList = new ArrayList<>();
@@ -53,5 +53,17 @@ public class StoreOrders implements Customizable{
             }
         }
         return false;
+    }
+
+    /**
+     * Prints all Orders within the Store Order List
+     * @return full string list
+     */
+    public String toString(){
+        String output = "";
+        for (int i = 0; i < orderList.size(); i++) {
+            output = output.concat(orderList.get(i).toString() + "\n");
+        }
+        return output;
     }
 }

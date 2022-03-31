@@ -1,20 +1,20 @@
 package com.project4;
 /**
- Container class holds a list of MenuItems being purchased
- within an order. Adds, Removes, calculates subtotal, sales tax,
- and total of the current order.
- @author Priya Patel, Vanna Mendoza
+ * Container class holds a list of MenuItems being purchased
+ * within an order. Adds, Removes, calculates subtotal, sales tax,
+ * and total of the current order.
+ * @author Priya Patel, Vanna Mendoza
  */
 import java.util.ArrayList;
 
 public class Order implements Customizable{
-    public static final double SALESTAX = 0.06625;
+    private static final double SALESTAX = 0.06625;
     private ArrayList<MenuItem> itemList;
 
     /**
-     A constructor that will define ArrayList
-     that will hold all MenuItems in the
-     current order
+     * A constructor that will define ArrayList
+     * that will hold all MenuItems in the
+     * current order
      */
     public Order (){
         itemList = new ArrayList<>();
@@ -29,7 +29,7 @@ public class Order implements Customizable{
     public double calculateSubtotal(){
         double subtotal = 0;
 
-        for (MenuItem menuItem : this.itemList) {
+        for (MenuItem menuItem : itemList) {
             subtotal += menuItem.itemPrice();
         }
 
@@ -44,8 +44,7 @@ public class Order implements Customizable{
      */
 
     public double calculateTax(){
-        double subtotal = this.calculateSubtotal();
-        return subtotal * SALESTAX;
+        return (this.calculateSubtotal() * SALESTAX);
     }
 
     /**
@@ -56,10 +55,7 @@ public class Order implements Customizable{
      */
 
     public double calculateTotal(){
-        double subtotal = this.calculateSubtotal();
-        double tax = this.calculateTax();
-
-        return tax + subtotal;
+        return (this.calculateSubtotal() + this.calculateTax());
     }
 
     /**
@@ -107,5 +103,18 @@ public class Order implements Customizable{
                 return true;
             }
         }
-        return false;    }
+        return false;
+    }
+
+    /**
+     * Prints all MenuItem within the Order
+     * @return full string list
+     */
+    public String toString(){
+        String output = "";
+        for (int i = 0; i < itemList.size(); i++) {
+            output = output.concat(itemList.get(i).toString() + "\n");
+        }
+        return output;
+    }
 }

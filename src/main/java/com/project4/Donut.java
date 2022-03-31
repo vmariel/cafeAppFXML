@@ -1,23 +1,26 @@
 package com.project4;
 /**
  * Creates a Donut object. Calculates cost of donut.
- @author Priya Patel, Vanna Mendoza
+ * @author Priya Patel, Vanna Mendoza
  */
 public class Donut extends MenuItem{
-    public static final double YEASTDONUT = 1.59;
-    public static final double CAKEDONUT =  1.79;
-    public static final double DONUTHOLES = 0.39;
+    private static final double YEASTDONUT = 1.59;
+    private static final double CAKEDONUT =  1.79;
+    private static final double DONUTHOLES = 0.39;
 
     /**
-     A constructor that will define itemPrice
-     based on the given type of donut
-     @param type - String that contains the type of
-     donut being purchased
-     @param amount - Integer that contains the
-     amount being purchased
+     * A constructor that will define itemPrice
+     * based on the given type of donut
+     * @param type - String that contains the type of
+     * donut being purchased
+     * @param flavor - String that contains the flavor of
+     * donut being purchased
+     * @param amount - Integer that contains the
+     * amount being purchased
      */
-    public Donut(String type, int amount){
+    public Donut(String type, String flavor, int amount){
         type = type.toLowerCase();
+        this.itemName = flavor.toLowerCase();
         this.quantity = amount;
 
         if(type.equals("yeast")){
@@ -34,10 +37,20 @@ public class Donut extends MenuItem{
     /**
      * A method that will calculate the cost of
      * the menu item based on quantity
-     @return double the cost of the menu item
+     * @return double the cost of the menu item
      */
     @Override
     public double itemPrice(){
         return super.itemPrice();
+    }
+
+    /**
+     * Converts Donut to a string
+     * @return the desired string representing the
+     * flavor, donut type, and amount of being purchased
+     */
+    @Override
+    public String toString(){
+        return super.toString();
     }
 }

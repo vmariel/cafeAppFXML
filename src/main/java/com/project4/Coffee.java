@@ -1,59 +1,63 @@
 package com.project4;
 /**
- Creates a Coffee object. Calculates cost of coffee.
- Allows customers to customize their coffee order
- by allowing add ins and removing add ins.
- @author Priya Patel, Vanna Mendoza
+ * Creates a Coffee object. Calculates cost of coffee.
+ * Allows customers to customize their coffee order
+ * by allowing add ins and removing add ins.
+ * @author Priya Patel, Vanna Mendoza
  */
 import java.util.ArrayList;
 
 public class Coffee extends MenuItem implements Customizable {
-    public static final double SHORTCOFFEE = 1.69;
-    public static final double TALLCOFFEE =  2.09;
-    public static final double GRANDECOFFEE = 2.49;
-    public static final double VENTICOFFEE = 2.89;
-    public static final double ADDINS = 0.30;
+    private static final double SHORTCOFFEE = 1.69;
+    private static final double TALLCOFFEE =  2.09;
+    private static final double GRANDECOFFEE = 2.49;
+    private static final double VENTICOFFEE = 2.89;
+    private static final double ADDINS = 0.30;
     private ArrayList<String> addInList;
+    private String size;
 
     /**
-     A constructor that will define itemPrice
-     based on the given type of donut
-     @param size - String that contains the size of
-     coffee being purchased
-     @param amount - Integer that contains the
-     amount being purchased
+     * A constructor that will define itemPrice
+     * based on the given type of donut
+     * @param size - String that contains the size of
+     * coffee being purchased
+     * @param amount - Integer that contains the
+     * amount being purchased
      */
     public Coffee(String size, int amount){
         size = size.toLowerCase();
+        this.itemName = "Coffee";
         this.quantity = amount;
 
         if(size.equals("short")){
             this.itemPrice = SHORTCOFFEE;
+            size = "Short ";
         }
         else if(size.equals("tall")){
             this.itemPrice = TALLCOFFEE;
+            size = "Tall ";
         }
         else if(size.equals("grande")){
             this.itemPrice = GRANDECOFFEE;
+            size = "Grande ";
         }
         else{
             this.itemPrice = VENTICOFFEE;
+            size = "Venti ";
         }
-
         this.addInList = new ArrayList<>();
     }
 
     /**
      * A method that will calculate the cost of
      * the menu item based on quantity
-     @return double the cost of the menu item
+     * @return double the cost of the menu item
      */
     @Override
     public double itemPrice() {
-        double addInPrice = addInList.size() * ADDINS;
-        double total = (this.itemPrice + addInPrice) * this.quantity;
+        this.itemPrice += (addInList.size() * ADDINS);
 
-        return total;
+        return super.itemPrice();
     }
 
     /**
@@ -88,5 +92,29 @@ public class Coffee extends MenuItem implements Customizable {
         }
         addInList.remove(toRemove);
         return true;
+    }
+
+    /**
+     * Converts Coffee to a string
+     * @return the desired string representing the
+     * Coffee size, add ins, and amount of being purchased
+     */
+    @Override
+    public String toString(){
+        int addinNum = addInList.size();
+        if(addinNum == 0){
+            return super.toString() + size;
+        }
+
+        String result = super.toString() + size + "[";
+        for(int i = 0; i < addinNum; i++){
+            if(i == addinNum-1){
+                result += addInList.get(i) + "]";
+            }
+            else{
+                result += addInList.get(i) + ",";
+            }
+        }
+        return result;
     }
 }
