@@ -23,7 +23,7 @@ public class MenuItem {
     /**
      * A method that will calculate the cost of
      * the menu item based on quantity
-     * @return double the cost of the menu item
+     * @return - Double cost of the menu item
      */
     public double itemPrice(){
         return itemPrice * quantity;
@@ -31,11 +31,11 @@ public class MenuItem {
 
     /**
      * Converts MenuItem to a string
-     * @return the desired string representing the
-     * menu item name and amount of being purchased
+     * @return - String representing the menu
+     * item name, and amount being purchased
      */
     public String toString(){
-        return itemName + " (" + quantity + ")";
+        return itemName + " (" + quantity + ") ";
     }
 
 }

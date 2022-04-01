@@ -37,7 +37,7 @@ public class Donut extends MenuItem{
     /**
      * A method that will calculate the cost of
      * the menu item based on quantity
-     * @return double the cost of the menu item
+     * @return - Double cost of Donut
      */
     @Override
     public double itemPrice(){
@@ -46,8 +46,8 @@ public class Donut extends MenuItem{
 
     /**
      * Converts Donut to a string
-     * @return the desired string representing the
-     * flavor, donut type, and amount of being purchased
+     * @return - String representing the flavor,
+     * donut type, and amount being purchased
      */
     @Override
     public String toString(){

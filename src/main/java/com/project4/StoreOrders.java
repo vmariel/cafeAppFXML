@@ -57,7 +57,7 @@ public class StoreOrders implements Customizable{
 
     /**
      * Prints all Orders within the Store Order List
-     * @return full string list
+     * @return String full Order list
      */
     public String toString(){
         String output = "";

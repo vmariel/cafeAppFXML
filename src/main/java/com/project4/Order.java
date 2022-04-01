@@ -108,7 +108,7 @@ public class Order implements Customizable{
 
     /**
      * Prints all MenuItem within the Order
-     * @return full string list
+     * @return - String full MenuItem list
      */
     public String toString(){
         String output = "";

@@ -13,31 +13,33 @@ public class Coffee extends MenuItem implements Customizable {
     private static final double GRANDECOFFEE = 2.49;
     private static final double VENTICOFFEE = 2.89;
     private static final double ADDINS = 0.30;
+    private static final int EMPTY = 0;
+
     private ArrayList<String> addInList;
     private String size;
 
     /**
      * A constructor that will define itemPrice
      * based on the given type of donut
-     * @param size - String that contains the size of
+     * @param s - String that contains the size of
      * coffee being purchased
      * @param amount - Integer that contains the
      * amount being purchased
      */
-    public Coffee(String size, int amount){
-        size = size.toLowerCase();
+    public Coffee(String s, int amount){
+        s = s.toLowerCase();
         this.itemName = "Coffee";
         this.quantity = amount;
 
-        if(size.equals("short")){
+        if(s.equals("short")){
             this.itemPrice = SHORTCOFFEE;
             size = "Short ";
         }
-        else if(size.equals("tall")){
+        else if(s.equals("tall")){
             this.itemPrice = TALLCOFFEE;
             size = "Tall ";
         }
-        else if(size.equals("grande")){
+        else if(s.equals("grande")){
             this.itemPrice = GRANDECOFFEE;
             size = "Grande ";
         }
@@ -51,7 +53,7 @@ public class Coffee extends MenuItem implements Customizable {
     /**
      * A method that will calculate the cost of
      * the menu item based on quantity
-     * @return double the cost of the menu item
+     * @return - Double the cost of Coffee
      */
     @Override
     public double itemPrice() {
@@ -61,10 +63,10 @@ public class Coffee extends MenuItem implements Customizable {
     }
 
     /**
-     * A method that adds an addin to the stored addin list.
-     * @param obj - An object that represents an addin
+     * A method that adds an add-in to the stored add-in list.
+     * @param obj - An object that represents an add-in
      * that will be added to the list.
-     * @return - Boolean true if the addin is successfully added.
+     * @return - Boolean true if the add-in is successfully added.
      * otherwise false
      */
     @Override
@@ -78,10 +80,10 @@ public class Coffee extends MenuItem implements Customizable {
     }
 
     /**
-     * A method that removes an addin from the stored addin list.
-     * @param obj - An object that represents an addin
+     * A method that removes an add-in from the stored add-in list.
+     * @param obj - An object that represents an add-in
      * that will be removed to the list.
-     * @return - Boolean true if the addin is successfully removed.
+     * @return - Boolean true if the add-in is successfully removed.
      * otherwise false
      */
     @Override
@@ -96,19 +98,19 @@ public class Coffee extends MenuItem implements Customizable {
 
     /**
      * Converts Coffee to a string
-     * @return the desired string representing the
-     * Coffee size, add ins, and amount of being purchased
+     * @return - String representing the Coffee size,
+     * add-ins, and amount being purchased
      */
     @Override
     public String toString(){
-        int addinNum = addInList.size();
-        if(addinNum == 0){
+        int addInNum = addInList.size();
+        if(addInNum == EMPTY){
             return super.toString() + size;
         }
 
         String result = super.toString() + size + "[";
-        for(int i = 0; i < addinNum; i++){
-            if(i == addinNum-1){
+        for(int i = 0; i < addInNum; i++){
+            if(i == addInNum-1){
                 result += addInList.get(i) + "]";
             }
             else{
