@@ -4,6 +4,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 
 public class StoreOrderController {
@@ -15,10 +16,10 @@ public class StoreOrderController {
     private Button exportButton;
 
     @FXML
-    private TextField orderDetails;
+    private ListView<String> orderDetails;
 
     @FXML
-    private ComboBox<?> orderNumber;
+    private ComboBox<Integer> orderNumber;
 
     @FXML
     private TextField orderTotal;

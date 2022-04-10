@@ -4,8 +4,8 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.ListView;
 import javafx.scene.control.Spinner;
-import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 
 public class OrderDonutController {
@@ -17,19 +17,19 @@ public class OrderDonutController {
     private Button addDonutOrderButton;
 
     @FXML
-    private TextArea donutMenu;
+    private ListView<String> donutMenu;
 
     @FXML
-    private TextArea donutSelected;
+    private ListView<String> donutSelected;
 
     @FXML
     private TextField donutTotal;
 
     @FXML
-    private ComboBox<?> donutType;
+    private ComboBox<String> donutType;
 
     @FXML
-    private Spinner<?> numDonut;
+    private Spinner<Integer> numDonut;
 
     @FXML
     private Button removeDonutButton;

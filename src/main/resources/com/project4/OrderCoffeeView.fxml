@@ -15,8 +15,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
-<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.project4.OrderCoffeeController">
+<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.project4.OrderCoffeeController">
    <children>
       <Label alignment="CENTER" contentDisplay="CENTER" text="Coffee Customization">
          <font>
@@ -44,12 +43,12 @@
         </rowConstraints>
          <children>
             <ComboBox fx:id="coffeeSize" prefWidth="150.0" GridPane.columnIndex="2" />
-            <CheckBox fx:id="syrup" mnemonicParsing="false" text="Syrup" GridPane.columnIndex="1" />
-            <CheckBox fx:id="cream" mnemonicParsing="false" text="Cream" />
-            <CheckBox fx:id="milk" mnemonicParsing="false" text="Milk" GridPane.rowIndex="1" />
-            <CheckBox fx:id="caramel" mnemonicParsing="false" text="Caramel" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <CheckBox fx:id="whippedCream" mnemonicParsing="false" text="Whipped Cream" GridPane.rowIndex="2" />
-            <TextField fx:id="coffeeTotal" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+            <CheckBox fx:id="syrup" mnemonicParsing="false" onAction="#manageSyrup" text="Syrup" GridPane.columnIndex="1" />
+            <CheckBox fx:id="cream" mnemonicParsing="false" onAction="#manageCream" text="Cream" />
+            <CheckBox fx:id="milk" mnemonicParsing="false" onAction="#manageMilk" text="Milk" GridPane.rowIndex="1" />
+            <CheckBox fx:id="caramel" mnemonicParsing="false" onAction="#manageCaramel" text="Caramel" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <CheckBox fx:id="whippedCream" mnemonicParsing="false" onAction="#manageWhipped" text="Whipped Cream" GridPane.rowIndex="2" />
+            <TextField fx:id="coffeeTotal" editable="false" GridPane.columnIndex="2" GridPane.rowIndex="2" />
             <Spinner fx:id="numCoffee" GridPane.columnIndex="2" GridPane.rowIndex="1" />
          </children>
          <VBox.margin>

@@ -20,7 +20,7 @@ public class Coffee extends MenuItem implements Customizable {
 
     /**
      * A constructor that will define itemPrice
-     * based on the given type of donut
+     * based on the given type of coffee
      * @param s - String that contains the size of
      * coffee being purchased
      * @param amount - Integer that contains the

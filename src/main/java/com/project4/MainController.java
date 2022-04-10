@@ -9,6 +9,8 @@ import javafx.stage.Stage;
 
 public class MainController {
 
+    private StoreOrders storeOrders = new StoreOrders();
+
     @FXML
     void currentOrder(ActionEvent event) {
         try {
@@ -27,6 +29,8 @@ public class MainController {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("OrderCoffeeView.fxml"));
             Scene scene = new Scene(fxmlLoader.load(), 400, 400);
             Stage stage = new Stage();
+            OrderCoffeeController coffeeController = fxmlLoader.getController();
+            coffeeController.setMainController(this);
             stage.setTitle("Ordering Coffee");
             stage.setScene(scene);
             stage.show();

@@ -4,8 +4,8 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.Spinner?>
-<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -14,8 +14,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.project4.OrderDonutController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.project4.OrderDonutController">
    <top>
       <VBox alignment="CENTER" prefHeight="171.0" prefWidth="400.0" BorderPane.alignment="CENTER">
          <children>
@@ -53,7 +52,7 @@
          </BorderPane.margin>
          <children>
             <Label text="Menu Options" />
-            <TextArea fx:id="donutMenu" prefHeight="150.0" prefWidth="140.0" />
+            <ListView fx:id="donutMenu" prefHeight="150.0" prefWidth="140.0" />
          </children>
       </VBox>
    </left>
@@ -64,7 +63,7 @@
          </BorderPane.margin>
          <children>
             <Label text="Selections for Order" />
-            <TextArea fx:id="donutSelected" prefHeight="150.0" prefWidth="140.0" />
+            <ListView fx:id="donutSelected" prefHeight="150.0" prefWidth="140.0" />
          </children>
       </VBox>
    </right>
@@ -92,7 +91,7 @@
    <bottom>
       <HBox alignment="CENTER" prefHeight="61.0" prefWidth="400.0" BorderPane.alignment="CENTER">
          <children>
-            <TextField fx:id="donutTotal">
+            <TextField fx:id="donutTotal" editable="false">
                <HBox.margin>
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </HBox.margin>
