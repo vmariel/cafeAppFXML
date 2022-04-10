@@ -17,6 +17,7 @@ public class Coffee extends MenuItem implements Customizable {
 
     private ArrayList<String> addInList;
     private String size;
+    private Double basePrice;
 
     /**
      * A constructor that will define itemPrice
@@ -43,8 +44,7 @@ public class Coffee extends MenuItem implements Customizable {
      */
     @Override
     public double itemPrice() {
-        this.itemPrice += (addInList.size() * ADDINS);
-
+        this.itemPrice = basePrice + (addInList.size() * ADDINS);
         return super.itemPrice();
     }
 
@@ -110,19 +110,19 @@ public class Coffee extends MenuItem implements Customizable {
         s = s.toLowerCase();
 
         if(s.equals("short")){
-            this.itemPrice = SHORTCOFFEE;
+            this.basePrice = SHORTCOFFEE;
             size = "Short ";
         }
         else if(s.equals("tall")){
-            this.itemPrice = TALLCOFFEE;
+            this.basePrice = TALLCOFFEE;
             size = "Tall ";
         }
         else if(s.equals("grande")){
-            this.itemPrice = GRANDECOFFEE;
+            this.basePrice = GRANDECOFFEE;
             size = "Grande ";
         }
         else{
-            this.itemPrice = VENTICOFFEE;
+            this.basePrice = VENTICOFFEE;
             size = "Venti ";
         }
     }

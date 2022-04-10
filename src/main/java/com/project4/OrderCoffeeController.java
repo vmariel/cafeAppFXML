@@ -2,11 +2,9 @@ package com.project4;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.CheckBox;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.Spinner;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
+
+import java.util.Optional;
 
 public class OrderCoffeeController {
 
@@ -58,7 +56,26 @@ public class OrderCoffeeController {
 
     @FXML
     void addCoffee(ActionEvent event) {
-        mainController.currentOrder.add(coffee);
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Confirm Addition to Order");
+        alert.setHeaderText("You are about to add the current item to order.");
+        alert.setContentText("Please confirm below.");
+        Optional<ButtonType> result = alert.showAndWait();
+
+        if(result.isPresent() && (result.get() == ButtonType.OK)) {
+            mainController.currentOrder.add(coffee);
+            coffeeSize.getSelectionModel().selectFirst();
+            numCoffee.getSelectionModel().selectFirst();
+            coffee = new Coffee(coffeeSize.getSelectionModel().getSelectedItem(),
+                    numCoffee.getSelectionModel().getSelectedItem());
+            caramel.setSelected(false);
+            cream.setSelected(false);
+            milk.setSelected(false);
+            syrup.setSelected(false);
+            whippedCream.setSelected(false);
+
+            updatePrice();
+        }
     }
 
     @FXML
