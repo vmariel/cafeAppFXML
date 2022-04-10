@@ -9,7 +9,8 @@ import javafx.stage.Stage;
 
 public class MainController {
 
-    private StoreOrders storeOrders = new StoreOrders();
+    public Order currentOrder = new Order();
+    public StoreOrders storeOrders = new StoreOrders();
 
     @FXML
     void currentOrder(ActionEvent event) {

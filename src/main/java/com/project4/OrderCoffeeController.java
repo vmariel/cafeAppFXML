@@ -46,7 +46,7 @@ public class OrderCoffeeController {
 
     @FXML
     void addCoffee(ActionEvent event) {
-
+        mainController.currentOrder.add(coffee);
     }
 
     @FXML
