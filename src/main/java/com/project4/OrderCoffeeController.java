@@ -17,7 +17,7 @@ public class OrderCoffeeController {
     private CheckBox caramel;
 
     @FXML
-    private ComboBox<String> coffeeSize;
+    private ComboBox<String> coffeeSize = new ComboBox<String>();
 
     @FXML
     private TextField coffeeTotal;
@@ -29,7 +29,7 @@ public class OrderCoffeeController {
     private CheckBox milk;
 
     @FXML
-    private Spinner<Integer> numCoffee;
+    private ComboBox<Integer> numCoffee = new ComboBox<Integer>();
 
     @FXML
     private CheckBox syrup;
@@ -38,10 +38,22 @@ public class OrderCoffeeController {
     private CheckBox whippedCream;
 
     private MainController mainController;
-    private Coffee coffee = new Coffee("Tall",1);
+    private Coffee coffee;
 
-    public void setMainController(MainController controller) {
+    public void setup(MainController controller) {
         mainController = controller;
+        coffeeSize.getItems().addAll("Short", "Tall", "Grande", "Venti");
+        coffeeSize.getSelectionModel().selectFirst();
+        numCoffee.getItems().addAll(1, 2, 3, 4, 5, 6);
+        numCoffee.getSelectionModel().selectFirst();
+        coffee = new Coffee(coffeeSize.getSelectionModel().getSelectedItem(),
+                numCoffee.getSelectionModel().getSelectedItem());
+        updatePrice();
+    }
+
+    @FXML
+    void updatePrice() {
+        coffeeTotal.setText(String.valueOf(coffee.itemPrice()));
     }
 
     @FXML
@@ -56,6 +68,7 @@ public class OrderCoffeeController {
         } else {
             coffee.remove("caramel");
         }
+        updatePrice();
     }
 
     @FXML
@@ -65,6 +78,7 @@ public class OrderCoffeeController {
         } else {
             coffee.remove("cream");
         }
+        updatePrice();
     }
 
     @FXML
@@ -74,6 +88,7 @@ public class OrderCoffeeController {
         } else {
             coffee.remove("milk");
         }
+        updatePrice();
     }
 
     @FXML
@@ -83,6 +98,7 @@ public class OrderCoffeeController {
         } else {
             coffee.remove("syrup");
         }
+        updatePrice();
     }
 
     @FXML
@@ -92,6 +108,19 @@ public class OrderCoffeeController {
         } else {
             coffee.remove("whipped cream");
         }
+        updatePrice();
+    }
+
+    @FXML
+    void updateNum(ActionEvent event) {
+        coffee.quantity = numCoffee.getSelectionModel().getSelectedItem();
+        updatePrice();
+    }
+
+    @FXML
+    void updateSize(ActionEvent event) {
+        coffee.setSize(coffeeSize.getSelectionModel().getSelectedItem());
+        updatePrice();
     }
 
 }

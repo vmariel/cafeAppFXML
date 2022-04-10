@@ -5,7 +5,6 @@
 <?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.Spinner?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -42,14 +41,14 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <ComboBox fx:id="coffeeSize" prefWidth="150.0" GridPane.columnIndex="2" />
+            <ComboBox fx:id="coffeeSize" onAction="#updateSize" prefWidth="150.0" GridPane.columnIndex="2" />
             <CheckBox fx:id="syrup" mnemonicParsing="false" onAction="#manageSyrup" text="Syrup" GridPane.columnIndex="1" />
             <CheckBox fx:id="cream" mnemonicParsing="false" onAction="#manageCream" text="Cream" />
             <CheckBox fx:id="milk" mnemonicParsing="false" onAction="#manageMilk" text="Milk" GridPane.rowIndex="1" />
             <CheckBox fx:id="caramel" mnemonicParsing="false" onAction="#manageCaramel" text="Caramel" GridPane.columnIndex="1" GridPane.rowIndex="1" />
             <CheckBox fx:id="whippedCream" mnemonicParsing="false" onAction="#manageWhipped" text="Whipped Cream" GridPane.rowIndex="2" />
             <TextField fx:id="coffeeTotal" editable="false" GridPane.columnIndex="2" GridPane.rowIndex="2" />
-            <Spinner fx:id="numCoffee" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+            <ComboBox fx:id="numCoffee" onAction="#updateNum" prefWidth="150.0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
          </children>
          <VBox.margin>
             <Insets bottom="15.0" left="30.0" right="30.0" top="30.0" />

@@ -27,26 +27,12 @@ public class Coffee extends MenuItem implements Customizable {
      * amount being purchased
      */
     public Coffee(String s, int amount){
-        s = s.toLowerCase();
+
         this.itemName = "Coffee";
         this.quantity = amount;
 
-        if(s.equals("short")){
-            this.itemPrice = SHORTCOFFEE;
-            size = "Short ";
-        }
-        else if(s.equals("tall")){
-            this.itemPrice = TALLCOFFEE;
-            size = "Tall ";
-        }
-        else if(s.equals("grande")){
-            this.itemPrice = GRANDECOFFEE;
-            size = "Grande ";
-        }
-        else{
-            this.itemPrice = VENTICOFFEE;
-            size = "Venti ";
-        }
+        setSize(s);
+
         this.addInList = new ArrayList<>();
     }
 
@@ -118,5 +104,26 @@ public class Coffee extends MenuItem implements Customizable {
             }
         }
         return result;
+    }
+
+    public void setSize(String s) {
+        s = s.toLowerCase();
+
+        if(s.equals("short")){
+            this.itemPrice = SHORTCOFFEE;
+            size = "Short ";
+        }
+        else if(s.equals("tall")){
+            this.itemPrice = TALLCOFFEE;
+            size = "Tall ";
+        }
+        else if(s.equals("grande")){
+            this.itemPrice = GRANDECOFFEE;
+            size = "Grande ";
+        }
+        else{
+            this.itemPrice = VENTICOFFEE;
+            size = "Venti ";
+        }
     }
 }

@@ -31,7 +31,7 @@ public class MainController {
             Scene scene = new Scene(fxmlLoader.load(), 400, 400);
             Stage stage = new Stage();
             OrderCoffeeController coffeeController = fxmlLoader.getController();
-            coffeeController.setMainController(this);
+            coffeeController.setup(this);
             stage.setTitle("Ordering Coffee");
             stage.setScene(scene);
             stage.show();
