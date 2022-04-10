@@ -38,6 +38,7 @@ public class OrderCoffeeController {
     private MainController mainController;
     private Coffee coffee;
 
+    @FXML
     public void setup(MainController controller) {
         mainController = controller;
         coffeeSize.getItems().addAll("Short", "Tall", "Grande", "Venti");

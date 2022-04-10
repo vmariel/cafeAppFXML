@@ -30,7 +30,7 @@ public class Order implements Customizable{
         double subtotal = 0;
 
         for (MenuItem menuItem : itemList) {
-            subtotal += menuItem.itemPrice();
+            subtotal += menuItem.itemPrice() * menuItem.quantity;
         }
 
         return subtotal;
@@ -114,6 +114,18 @@ public class Order implements Customizable{
         String output = "";
         for (int i = 0; i < itemList.size(); i++) {
             output = output.concat(itemList.get(i).toString() + "\n");
+        }
+        return output;
+    }
+
+    /**
+     * Prints all MenuItem within the Order
+     * @return - String full MenuItem list
+     */
+    public String[] getItems(){
+        String[] output = new String[itemList.size()];
+        for (int i = 0; i < itemList.size(); i++) {
+            output[i] = itemList.get(i).toString();
         }
         return output;
     }

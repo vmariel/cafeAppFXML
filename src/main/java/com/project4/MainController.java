@@ -18,6 +18,8 @@ public class MainController {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("OrderBasketView.fxml"));
             Scene scene = new Scene(fxmlLoader.load(), 400, 400);
             Stage stage = new Stage();
+            OrderBasketController basketController = fxmlLoader.getController();
+            basketController.setup(this);
             stage.setTitle("Current Order");
             stage.setScene(scene);
             stage.show();
