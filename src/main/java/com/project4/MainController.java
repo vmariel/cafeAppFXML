@@ -1,14 +1,60 @@
 package com.project4;
 
 import javafx.fxml.FXML;
-import javafx.scene.control.Label;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
 
 public class MainController {
-    @FXML
-    private Label welcomeText;
 
     @FXML
-    protected void onHelloButtonClick() {
-        welcomeText.setText("Welcome to JavaFX Application!");
+    void currentOrder(ActionEvent event) {
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("OrderBasketView.fxml"));
+            Scene scene = new Scene(fxmlLoader.load(), 400, 400);
+            Stage stage = new Stage();
+            stage.setTitle("Current Order");
+            stage.setScene(scene);
+            stage.show();
+        } catch (Exception e) {}
     }
+
+    @FXML
+    void orderCoffee(ActionEvent event) {
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("OrderCoffeeView.fxml"));
+            Scene scene = new Scene(fxmlLoader.load(), 400, 400);
+            Stage stage = new Stage();
+            stage.setTitle("Ordering Coffee");
+            stage.setScene(scene);
+            stage.show();
+        } catch (Exception e) {}
+    }
+
+    @FXML
+    void orderDonuts(ActionEvent event) {
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("OrderDonutView.fxml"));
+            Scene scene = new Scene(fxmlLoader.load(), 400, 400);
+            Stage stage = new Stage();
+            stage.setTitle("Ordering Donuts");
+            stage.setScene(scene);
+            stage.show();
+        } catch (Exception e) {}
+    }
+
+    @FXML
+    void storeOrders(ActionEvent event) {
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("StoreOrderView.fxml"));
+            Scene scene = new Scene(fxmlLoader.load(), 400, 400);
+            Stage stage = new Stage();
+            stage.setTitle("Store Orders");
+            stage.setScene(scene);
+            stage.show();
+        } catch (Exception e) {}
+    }
+
 }

@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.project4.MainController">
    <top>
       <Label alignment="CENTER" text="Welcome to the Rutgers Cafe!" textAlignment="CENTER" BorderPane.alignment="CENTER">
          <padding>
@@ -24,11 +24,11 @@
    <center>
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="600.0" BorderPane.alignment="CENTER">
          <children>
-            <Button contentDisplay="TOP" mnemonicParsing="false" text="Order Donuts" textAlignment="CENTER">
+            <Button fx:id="donutButton" contentDisplay="TOP" mnemonicParsing="false" onAction="#orderDonuts" text="Order Donuts" textAlignment="CENTER">
                <graphic>
                   <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../../../../donuts.jpg" />
+                        <Image url="@donuts.jpg" />
                      </image>
                   </ImageView>
                </graphic>
@@ -39,11 +39,11 @@
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </HBox.margin>
             </Button>
-            <Button contentDisplay="TOP" mnemonicParsing="false" text="Order Coffee">
+            <Button fx:id="coffeeButton" contentDisplay="TOP" mnemonicParsing="false" onAction="#orderCoffee" text="Order Coffee">
                <graphic>
                   <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../../../../coffee.jpg" />
+                        <Image url="@coffee.jpg" />
                      </image>
                   </ImageView>
                </graphic>
@@ -70,7 +70,7 @@
             </Label>
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="600.0">
                <children>
-                  <Button contentDisplay="TOP" mnemonicParsing="false" text="Current Order">
+                  <Button fx:id="currentButton" contentDisplay="TOP" mnemonicParsing="false" onAction="#currentOrder" text="Current Order">
                      <padding>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                      </padding>
@@ -80,19 +80,19 @@
                      <graphic>
                         <ImageView fitHeight="54.0" fitWidth="67.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../../../../../cart.jpg" />
+                              <Image url="@cart.jpg" />
                            </image>
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Button contentDisplay="TOP" mnemonicParsing="false" text="Store Orders">
+                  <Button fx:id="storeButton" contentDisplay="TOP" mnemonicParsing="false" onAction="#storeOrders" text="Store Orders">
                      <padding>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                      </padding>
                      <graphic>
                         <ImageView fitHeight="54.0" fitWidth="67.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../../../../../cafe.jpg" />
+                              <Image url="@cafe.jpg" />
                            </image>
                         </ImageView>
                      </graphic>
