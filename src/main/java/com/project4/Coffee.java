@@ -121,9 +121,17 @@ public class Coffee extends MenuItem implements Customizable {
             this.basePrice = GRANDECOFFEE;
             size = "Grande ";
         }
-        else{
+        else{ // I THINK HERE'S THE PROBLEM, something w spacingg ?
             this.basePrice = VENTICOFFEE;
             size = "Venti ";
         }
+    }
+
+    public Coffee copy() {
+        Coffee duplicate = new Coffee(this.size, this.quantity);
+        for (String addIn : addInList) {
+            duplicate.add(addIn);
+        }
+        return duplicate;
     }
 }

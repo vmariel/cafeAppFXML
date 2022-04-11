@@ -30,7 +30,7 @@ public class Order implements Customizable{
         double subtotal = 0;
 
         for (MenuItem menuItem : itemList) {
-            subtotal += menuItem.itemPrice() * menuItem.quantity;
+            subtotal += menuItem.itemPrice();
         }
 
         return subtotal;
