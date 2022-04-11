@@ -9,8 +9,8 @@ import javafx.stage.Stage;
 
 public class MainController {
 
-    public Order currentOrder = new Order();
-    public StoreOrders storeOrders = new StoreOrders();
+    private Order currentOrder = new Order();
+    private StoreOrders storeOrders = new StoreOrders();
 
     @FXML
     void currentOrder(ActionEvent event) {
@@ -21,8 +21,9 @@ public class MainController {
             OrderBasketController basketController = fxmlLoader.getController();
             basketController.setup(this);
             stage.setTitle("Current Order");
+            stage.setResizable(false);
             stage.setScene(scene);
-            stage.show();
+            stage.showAndWait();
         } catch (Exception e) {}
     }
 
@@ -35,8 +36,9 @@ public class MainController {
             OrderCoffeeController coffeeController = fxmlLoader.getController();
             coffeeController.setup(this);
             stage.setTitle("Ordering Coffee");
+            stage.setResizable(false);
             stage.setScene(scene);
-            stage.show();
+            stage.showAndWait();
         } catch (Exception e) {}
     }
 
@@ -47,6 +49,7 @@ public class MainController {
             Scene scene = new Scene(fxmlLoader.load(), 400, 400);
             Stage stage = new Stage();
             stage.setTitle("Ordering Donuts");
+            stage.setResizable(false);
             stage.setScene(scene);
             stage.show();
         } catch (Exception e) {}
@@ -59,9 +62,17 @@ public class MainController {
             Scene scene = new Scene(fxmlLoader.load(), 400, 400);
             Stage stage = new Stage();
             stage.setTitle("Store Orders");
+            stage.setResizable(false);
             stage.setScene(scene);
             stage.show();
         } catch (Exception e) {}
     }
 
+    public Order getCurrentOrder() {
+        return currentOrder;
+    }
+
+    public StoreOrders getStoreOrders() {
+        return storeOrders;
+    }
 }

@@ -31,7 +31,7 @@ public class OrderBasketController {
     @FXML
     public void setup(MainController controller) {
         mainController = controller;
-        String[] items = mainController.currentOrder.getItems();
+        String[] items = mainController.getCurrentOrder().getItems();
         for (int i = 0; i < items.length; i++) {
             currentDetails.getItems().add(items[i]);
         }
@@ -41,9 +41,9 @@ public class OrderBasketController {
 
     @FXML
     void updatePrices() {
-        currentSubtotal.setText(String.valueOf(mainController.currentOrder.calculateSubtotal()));
-        currentTax.setText(String.valueOf(mainController.currentOrder.calculateTax()));
-        currentTotal.setText(String.valueOf(mainController.currentOrder.calculateTotal()));
+        currentSubtotal.setText(String.valueOf(mainController.getCurrentOrder().calculateSubtotal()));
+        currentTax.setText(String.valueOf(mainController.getCurrentOrder().calculateTax()));
+        currentTotal.setText(String.valueOf(mainController.getCurrentOrder().calculateTotal()));
 
     }
 

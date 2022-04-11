@@ -94,7 +94,7 @@ public class Coffee extends MenuItem implements Customizable {
             return super.toString() + size;
         }
 
-        String result = super.toString() + size + "[";
+        String result = super.toString() + size + " [";
         for(int i = 0; i < addInNum; i++){
             if(i == addInNum-1){
                 result += addInList.get(i) + "]";
@@ -111,19 +111,19 @@ public class Coffee extends MenuItem implements Customizable {
 
         if(s.equals("short")){
             this.basePrice = SHORTCOFFEE;
-            size = "Short ";
+            size = "Short";
         }
         else if(s.equals("tall")){
             this.basePrice = TALLCOFFEE;
-            size = "Tall ";
+            size = "Tall";
         }
         else if(s.equals("grande")){
             this.basePrice = GRANDECOFFEE;
-            size = "Grande ";
+            size = "Grande";
         }
         else{ // I THINK HERE'S THE PROBLEM, something w spacingg ?
             this.basePrice = VENTICOFFEE;
-            size = "Venti ";
+            size = "Venti";
         }
     }
 

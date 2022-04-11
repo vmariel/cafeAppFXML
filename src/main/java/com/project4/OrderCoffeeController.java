@@ -65,7 +65,7 @@ public class OrderCoffeeController {
 
         if(result.isPresent() && (result.get() == ButtonType.OK)) {
             Coffee toAdd = coffee.copy();
-            mainController.currentOrder.add(toAdd);
+            mainController.getCurrentOrder().add(toAdd);
             coffeeSize.getSelectionModel().selectFirst();
             numCoffee.getSelectionModel().selectFirst();
             coffee = new Coffee(coffeeSize.getSelectionModel().getSelectedItem(),

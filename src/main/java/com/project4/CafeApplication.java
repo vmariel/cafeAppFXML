@@ -13,6 +13,7 @@ public class CafeApplication extends Application {
         FXMLLoader fxmlLoader = new FXMLLoader(CafeApplication.class.getResource("MainView.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 600, 400);
         stage.setTitle("Rutgers Cafe");
+        stage.setResizable(false);
         stage.setScene(scene);
         stage.show();
     }
