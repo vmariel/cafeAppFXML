@@ -13,6 +13,10 @@ public class MainController {
     private Order currentOrder = new Order();
     private StoreOrders storeOrders = new StoreOrders();
 
+    /**
+     * handles opening current order screen
+     * @param event UNUSED
+     */
     @FXML
     void currentOrder(ActionEvent event) {
         try {
@@ -29,6 +33,10 @@ public class MainController {
         } catch (Exception e) {}
     }
 
+    /**
+     * handles opening coffee order screen
+     * @param event UNUSED
+     */
     @FXML
     void orderCoffee(ActionEvent event) {
         try {
@@ -45,6 +53,10 @@ public class MainController {
         } catch (Exception e) {}
     }
 
+    /**
+     * handles opening donut order screen
+     * @param event UNUSED
+     */
     @FXML
     void orderDonuts(ActionEvent event) {
         try {
@@ -61,6 +73,10 @@ public class MainController {
         } catch (Exception e) {}
     }
 
+    /**
+     * handles opening store order screen
+     * @param event UNUSED
+     */
     @FXML
     void storeOrders(ActionEvent event) {
         try {
@@ -77,14 +93,25 @@ public class MainController {
         } catch (Exception e) {}
     }
 
+    /**
+     * getter for current order
+     * @return
+     */
     public Order getCurrentOrder() {
         return currentOrder;
     }
 
+    /**
+     * ggetter for store orders
+     * @return
+     */
     public StoreOrders getStoreOrders() {
         return storeOrders;
     }
 
+    /**
+     * setter for current orders
+     */
     public void setCurrentOrder() {
         currentOrder = new Order();
     }
