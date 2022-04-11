@@ -19,7 +19,7 @@ public class OrderDonutController {
     @FXML
     private ComboBox<String> donutType = new ComboBox<String>();
     @FXML
-    private Spinner<Integer> numDonut;
+    private ComboBox<Integer> numDonut = new ComboBox<Integer>();
 
     private MainController mainController;
     private Donut donut;
@@ -33,12 +33,14 @@ public class OrderDonutController {
         //ObservableList<String> flavors = FXCollections.observableArrayList("Chocolate", "Glazed","Jelly");
         donutMenu.getItems().addAll("Chocolate", "Glazed","Jelly");
 
-        numDonut = new Spinner<Integer>();
-        SpinnerValueFactory<Integer> value = new SpinnerValueFactory.IntegerSpinnerValueFactory(1, 12, 1);
-        numDonut.setValueFactory(value);
+        numDonut.getItems().addAll(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12);
+        numDonut.getSelectionModel().selectFirst();
+        //numDonut = new Spinner<Integer>();
+        //SpinnerValueFactory<Integer> value = new SpinnerValueFactory.IntegerSpinnerValueFactory(1, 12, 1);
+        //numDonut.setValueFactory(value);
 
         donut = new Donut(donutType.getSelectionModel().getSelectedItem(),
-                donutMenu.getSelectionModel().getSelectedItem(), numDonut.getValue());
+                donutMenu.getSelectionModel().getSelectedItem(), numDonut.getSelectionModel().getSelectedItem());
 
         updatePrice();
     }

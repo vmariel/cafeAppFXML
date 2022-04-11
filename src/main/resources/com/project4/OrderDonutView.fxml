@@ -1,20 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ComboBox?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ListView?>
-<?import javafx.scene.control.Spinner?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.text.Font?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.project4.OrderDonutController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.project4.OrderDonutController">
    <top>
       <VBox alignment="CENTER" prefHeight="171.0" prefWidth="400.0" BorderPane.alignment="CENTER">
          <children>
@@ -28,7 +20,7 @@
             </Label>
             <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
                <children>
-                  <ComboBox fx:id="donutType" prefWidth="150.0" />
+                  <ComboBox fx:id="donutType" onAction="#updateType" prefWidth="150.0" />
                   <ImageView fitHeight="100.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@donuts.jpg" />
@@ -52,7 +44,7 @@
          </BorderPane.margin>
          <children>
             <Label text="Menu Options" />
-            <ListView fx:id="donutMenu" prefHeight="150.0" prefWidth="140.0" />
+            <ListView fx:id="donutMenu" onEditStart="#updateFlavor" prefHeight="150.0" prefWidth="140.0" />
          </children>
       </VBox>
    </left>
@@ -70,12 +62,8 @@
    <center>
       <VBox alignment="CENTER" prefHeight="200.0" prefWidth="53.0" BorderPane.alignment="CENTER">
          <children>
-            <Spinner fx:id="numDonut">
-               <VBox.margin>
-                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-               </VBox.margin>
-            </Spinner>
-            <Button fx:id="addDonutButton" mnemonicParsing="false" onAction="#chooseDonuts" text="&gt;&gt;">
+            <ComboBox fx:id="numDonut" onAction="#updateNum" prefWidth="150.0" />
+            <Button fx:id="addDonutButton" mnemonicParsing="false" onAction="#addDonuts" text="&gt;&gt;">
                <VBox.margin>
                   <Insets bottom="5.0" top="5.0" />
                </VBox.margin>
@@ -91,7 +79,7 @@
    <bottom>
       <HBox alignment="CENTER" prefHeight="61.0" prefWidth="400.0" BorderPane.alignment="CENTER">
          <children>
-            <TextField fx:id="donutTotal" editable="false">
+            <TextField fx:id="donutTotal" editable="false" onAction="#updatePrice">
                <HBox.margin>
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </HBox.margin>
