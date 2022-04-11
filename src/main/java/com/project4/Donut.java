@@ -19,19 +19,9 @@ public class Donut extends MenuItem{
      * amount being purchased
      */
     public Donut(String type, String flavor, int amount){
-        type = type.toLowerCase();
-        this.itemName = flavor.toLowerCase();
+        setFlavor(flavor);
         this.quantity = amount;
-
-        if(type.equals("yeast")){
-            this.itemPrice = YEASTDONUT;
-        }
-        else if(type.equals("cake")){
-            this.itemPrice = CAKEDONUT;
-        }
-        else{
-            this.itemPrice = DONUTHOLES;
-        }
+        setType(type);
     }
 
     /**
@@ -42,6 +32,23 @@ public class Donut extends MenuItem{
     @Override
     public double itemPrice(){
         return super.itemPrice();
+    }
+
+    public void setType(String t) {
+        t = t.toLowerCase();
+
+        if(t.equals("yeast")){
+            this.itemPrice = YEASTDONUT;
+        }
+        else if(t.equals("cake")){
+            this.itemPrice = CAKEDONUT;
+        }
+        else{
+            this.itemPrice = DONUTHOLES;
+        }
+    }
+    public void setFlavor(String f) {
+        this.itemName = f.toLowerCase();
     }
 
     /**

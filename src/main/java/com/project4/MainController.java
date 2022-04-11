@@ -51,6 +51,8 @@ public class MainController {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("OrderDonutView.fxml"));
             Scene scene = new Scene(fxmlLoader.load(), 400, 400);
             Stage stage = new Stage();
+            OrderDonutController donutController = fxmlLoader.getController();
+            donutController.setup(this);
             stage.setTitle("Ordering Donuts");
             stage.setResizable(false);
             stage.initModality(Modality.APPLICATION_MODAL);
@@ -65,6 +67,8 @@ public class MainController {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("StoreOrderView.fxml"));
             Scene scene = new Scene(fxmlLoader.load(), 400, 400);
             Stage stage = new Stage();
+            //StoreOrderController storeController = fxmlLoader.getController();
+            //storeController.setup(this);
             stage.setTitle("Store Orders");
             stage.setResizable(false);
             stage.initModality(Modality.APPLICATION_MODAL);
