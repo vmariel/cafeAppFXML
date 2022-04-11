@@ -5,6 +5,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 public class MainController {
@@ -22,6 +23,7 @@ public class MainController {
             basketController.setup(this);
             stage.setTitle("Current Order");
             stage.setResizable(false);
+            stage.initModality(Modality.APPLICATION_MODAL);
             stage.setScene(scene);
             stage.showAndWait();
         } catch (Exception e) {}
@@ -37,6 +39,7 @@ public class MainController {
             coffeeController.setup(this);
             stage.setTitle("Ordering Coffee");
             stage.setResizable(false);
+            stage.initModality(Modality.APPLICATION_MODAL);
             stage.setScene(scene);
             stage.showAndWait();
         } catch (Exception e) {}
@@ -50,6 +53,7 @@ public class MainController {
             Stage stage = new Stage();
             stage.setTitle("Ordering Donuts");
             stage.setResizable(false);
+            stage.initModality(Modality.APPLICATION_MODAL);
             stage.setScene(scene);
             stage.show();
         } catch (Exception e) {}
@@ -63,6 +67,7 @@ public class MainController {
             Stage stage = new Stage();
             stage.setTitle("Store Orders");
             stage.setResizable(false);
+            stage.initModality(Modality.APPLICATION_MODAL);
             stage.setScene(scene);
             stage.show();
         } catch (Exception e) {}
