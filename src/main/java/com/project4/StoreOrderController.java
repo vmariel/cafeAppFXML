@@ -46,7 +46,7 @@ public class StoreOrderController {
             items = selected.getItems();
             current = 1;
         } else {
-            items = mainController.getStoreOrders().getOrderList().get(current-1).getItems();
+            items = allOrders.get(current-1).getItems();
         }
 
         orderDetails.getItems().clear();
@@ -61,7 +61,13 @@ public class StoreOrderController {
 
     @FXML
     void cancelOrder(ActionEvent event) {
-
+        if (mainController.getStoreOrders().getOrderList().size() == 0) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Empty Order");
+            alert.setHeaderText("You have not selected an order to delete.");
+            alert.setContentText("Please try again.");
+            alert.showAndWait();
+        } else {}
     }
 
     @FXML
@@ -75,7 +81,12 @@ public class StoreOrderController {
         } else {
             mainController.getStoreOrders().export();
         }
+    }
 
+    @FXML
+    void selectOrder(ActionEvent event) {
+        current = orderNumber.getSelectionModel().getSelectedItem();
+        updateItems();
     }
 
 }
