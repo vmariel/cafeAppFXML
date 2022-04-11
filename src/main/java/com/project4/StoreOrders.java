@@ -4,6 +4,8 @@ package com.project4;
  * from the store. Adds, and  removes orders.
  * @author Priya Patel, Vanna Mendoza
  */
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class StoreOrders implements Customizable{
@@ -65,5 +67,17 @@ public class StoreOrders implements Customizable{
             output = output.concat(orderList.get(i).toString() + "\n");
         }
         return output;
+    }
+
+    public void export() {
+        try {
+            FileWriter toText = new FileWriter("orders.txt");
+            toText.write(this.toString());
+            toText.close();
+        } catch (IOException e) {}
+    }
+
+    public ArrayList<Order> getOrderList() {
+        return orderList;
     }
 }
