@@ -119,8 +119,8 @@ public class Order implements Customizable{
     }
 
     /**
-     * Prints all MenuItem within the Order
-     * @return - String full MenuItem list
+     * Returns all MenuItem within the Order
+     * @return - String array with full MenuItem list
      */
     public String[] getItems(){
         String[] output = new String[itemList.size()];
@@ -128,5 +128,9 @@ public class Order implements Customizable{
             output[i] = itemList.get(i).toString();
         }
         return output;
+    }
+
+    public MenuItem itemIndex(int index) {
+        return itemList.get(index);
     }
 }
