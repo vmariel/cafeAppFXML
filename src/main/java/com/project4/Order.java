@@ -130,10 +130,19 @@ public class Order implements Customizable{
         return output;
     }
 
+    /**
+     * Returns  MenuItem for given index
+     * @param index - given index of a MenuItem in List
+     * @return - MenuItem at given index
+     */
     public MenuItem itemIndex(int index) {
         return itemList.get(index);
     }
 
+    /**
+     * A method that will duplicate
+     * a Order Object
+     */
     public Order copy() {
         Order duplicate = new Order();
 
@@ -144,6 +153,10 @@ public class Order implements Customizable{
         return duplicate;
     }
 
+    /**
+     * A method that will return
+     * the list of MenuItems in order
+     */
     public ArrayList<MenuItem> getItemList() {
         return itemList;
     }

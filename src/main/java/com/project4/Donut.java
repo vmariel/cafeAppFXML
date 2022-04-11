@@ -34,6 +34,9 @@ public class Donut extends MenuItem{
         return super.itemPrice();
     }
 
+    /**
+     * A method that will set donut Type
+     */
     public void setType(String t) {
         t = t.toLowerCase();
 
@@ -47,6 +50,10 @@ public class Donut extends MenuItem{
             this.itemPrice = DONUTHOLES;
         }
     }
+    /**
+     * A method that will set donut flavor
+     * to itemName
+     */
     public void setFlavor(String f) {
         this.itemName = f.toLowerCase();
     }

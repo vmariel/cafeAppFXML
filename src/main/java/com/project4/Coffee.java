@@ -106,6 +106,9 @@ public class Coffee extends MenuItem implements Customizable {
         return result;
     }
 
+    /**
+     * A method that will set Coffee Size
+     */
     public void setSize(String s) {
         s = s.toLowerCase();
 
@@ -127,6 +130,10 @@ public class Coffee extends MenuItem implements Customizable {
         }
     }
 
+    /**
+     * A method that will duplicate
+     * a Coffee Object
+     */
     public Coffee copy() {
         Coffee duplicate = new Coffee(this.size, this.quantity);
         for (String addIn : addInList) {
