@@ -49,14 +49,17 @@ public class OrderBasketController {
 
     @FXML
     void placeOrder(ActionEvent event) {
-        if (currentDetails == null) {
+        if (mainController.getCurrentOrder().getItemList().size() == 0) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Empty Order");
             alert.setHeaderText("You have not added anything to this order.");
             alert.setContentText("Please try again.");
             alert.showAndWait();
-        } else { // reset
-            mainController.getStoreOrders().add(mainController.getCurrentOrder());
+        } else {
+            Order toAdd = mainController.getCurrentOrder().copy();
+            mainController.getStoreOrders().add(toAdd);
+            mainController.setCurrentOrder();
+            updateItems();
         }
     }
 

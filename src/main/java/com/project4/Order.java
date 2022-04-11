@@ -133,4 +133,18 @@ public class Order implements Customizable{
     public MenuItem itemIndex(int index) {
         return itemList.get(index);
     }
+
+    public Order copy() {
+        Order duplicate = new Order();
+
+        for (MenuItem item : itemList) {
+            duplicate.add(item);
+        }
+
+        return duplicate;
+    }
+
+    public ArrayList<MenuItem> getItemList() {
+        return itemList;
+    }
 }

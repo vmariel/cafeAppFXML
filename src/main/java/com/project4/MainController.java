@@ -80,4 +80,8 @@ public class MainController {
     public StoreOrders getStoreOrders() {
         return storeOrders;
     }
+
+    public void setCurrentOrder() {
+        currentOrder = new Order();
+    }
 }
